@@ -1,0 +1,76 @@
+\doxysection{行为}
+\label{group__user__action}\index{行为@{行为}}
+行为 的协作图\+:
+% FIG 0
+\doxysubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__user__action_ga8edf0a82c252124f4ab85d3f9923b3f0}{login}} (\mbox{\hyperlink{group__user_ga450623fc37d64234cf3afb2f91cd6bf0}{user\+\_\+t}} $\ast$\mbox{\hyperlink{structuser}{user}}, const char $\ast$args)
+\begin{DoxyCompactList}\small\item\em 登录函数。 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__user__action_ga6e0aec992793b17015ccc55073351ed0}{find\+\_\+user}} (const char $\ast$args)
+\begin{DoxyCompactList}\small\item\em 查找用户。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__user__action_gafc883852e8be690fc9e60db5786f1108}{add\+\_\+user}} (const \mbox{\hyperlink{group__user_ga450623fc37d64234cf3afb2f91cd6bf0}{user\+\_\+t}} $\ast$\mbox{\hyperlink{structuser}{user}}, const char $\ast$args)
+\begin{DoxyCompactList}\small\item\em 添加用户。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{函数说明}
+\mbox{\label{group__user__action_gafc883852e8be690fc9e60db5786f1108}} 
+\index{行为@{行为}!add\_user@{add\_user}}
+\index{add\_user@{add\_user}!行为@{行为}}
+\doxysubsubsection{\texorpdfstring{add\_user()}{add\_user()}}
+{\footnotesize\ttfamily void add\+\_\+user (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{group__user_ga450623fc37d64234cf3afb2f91cd6bf0}{user\+\_\+t}} $\ast$}]{user,  }\item[{const char $\ast$}]{args }\end{DoxyParamCaption})}
+
+
+
+添加用户。 
+
+
+\begin{DoxyParams}{参数}
+{\em user} & 执行操作的用户身份 \\
+\hline
+{\em args} & 待添加的用户名 \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__user__action_ga6e0aec992793b17015ccc55073351ed0}} 
+\index{行为@{行为}!find\_user@{find\_user}}
+\index{find\_user@{find\_user}!行为@{行为}}
+\doxysubsubsection{\texorpdfstring{find\_user()}{find\_user()}}
+{\footnotesize\ttfamily int find\+\_\+user (\begin{DoxyParamCaption}\item[{const char $\ast$}]{args }\end{DoxyParamCaption})}
+
+
+
+查找用户。 
+
+
+\begin{DoxyParams}{参数}
+{\em args} & 用户名 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+int 成功返回0，失败返回-\/1。 
+\end{DoxyReturn}
+\mbox{\label{group__user__action_ga8edf0a82c252124f4ab85d3f9923b3f0}} 
+\index{行为@{行为}!login@{login}}
+\index{login@{login}!行为@{行为}}
+\doxysubsubsection{\texorpdfstring{login()}{login()}}
+{\footnotesize\ttfamily int login (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__user_ga450623fc37d64234cf3afb2f91cd6bf0}{user\+\_\+t}} $\ast$}]{user,  }\item[{const char $\ast$}]{args }\end{DoxyParamCaption})}
+
+
+
+登录函数。 
+
+NOTE：在这里写文件交互？建议：外部写一个管理器，只加载一次。 修改时管理器和文件同步修改。对大文件，这样效率比较高。
+
+
+\begin{DoxyParams}{参数}
+{\em user} & 接收用户的登录参数 \\
+\hline
+{\em args} & 用户名。若为\+NULL，则执行交互式登录 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+int 成功返回0，失败返回-\/1。 
+\end{DoxyReturn}

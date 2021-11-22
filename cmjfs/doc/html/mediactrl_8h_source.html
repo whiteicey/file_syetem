@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CMJFS: include/sys/fs/mediactrl.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CMJFS
+   &#160;<span id="projectnumber">0.2</span>
+   </div>
+   <div id="projectbrief">一个由cmj完成的FS。</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_317ea3797c15f4a1d9c156bc812661ca.html">sys</a></li><li class="navelem"><a class="el" href="dir_4c59289196528cf625853e7eee5e3c24.html">fs</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">mediactrl.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="mediactrl_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef __CMJFS__SYS_FS__MEDIACTRL_H__</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define __CMJFS__SYS_FS__MEDIACTRL_H__ 1</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="block_8h.html">types/block.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="inode_8h.html">types/inode.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#define SET_BLK_FLAG(i) (blk_flag[i / CHAR_BIT] |= &#39;\x01&#39; &lt;&lt; (i % CHAR_BIT))</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="group__bitmap.html#gacb95a67dec2ec9cfc143783dbee4afac">   19</a></span>&#160;<span class="preprocessor">#define TEST_BLK_FLAG(i) (blk_flag[i / CHAR_BIT] &amp; &#39;\x01&#39; &lt;&lt; (i % CHAR_BIT) ? 1 : 0)</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="group__bitmap.html#gaa718e268ef6d3b18fcc65b0fc572d715">   21</a></span>&#160;<span class="preprocessor">#define CLEAR_BLK_FLAG(i) (blk_flag[i / CHAR_BIT] ^= &#39;\x01&#39; &lt;&lt; (i % CHAR_BIT))</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">extern</span> <a class="code" href="unionblock.html">block_t</a> <a class="code" href="group__fs.html#ga51294bf9bf3763fa1d2eaf8ee7358cde">BLK</a>[];</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">char</span> <a class="code" href="group__bitmap.html#gab2b3dcafcfc63acc07315a3c2ee4c7a7">blk_flag</a>[];</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">extern</span> <a class="code" href="structinode.html">inode_t</a> <a class="code" href="structinode.html">inode</a>[];</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="group__action.html#gaf251a464625dab5014cf87a3c5065936">   50</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__action.html#gaf251a464625dab5014cf87a3c5065936">acq_blk</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// __CMJFS__SYS_FS__MEDIACTRL_H__</span></div>
+<div class="ttc" id="ablock_8h_html"><div class="ttname"><a href="block_8h.html">block.h</a></div><div class="ttdoc">定义文件系统块。</div></div>
+<div class="ttc" id="agroup__action_html_gaf251a464625dab5014cf87a3c5065936"><div class="ttname"><a href="group__action.html#gaf251a464625dab5014cf87a3c5065936">acq_blk</a></div><div class="ttdeci">int acq_blk()</div><div class="ttdoc">申请一个新块。</div></div>
+<div class="ttc" id="agroup__bitmap_html_gab2b3dcafcfc63acc07315a3c2ee4c7a7"><div class="ttname"><a href="group__bitmap.html#gab2b3dcafcfc63acc07315a3c2ee4c7a7">blk_flag</a></div><div class="ttdeci">char blk_flag[]</div><div class="ttdoc">位图管理，指示哪些块可用。</div></div>
+<div class="ttc" id="agroup__fs_html_ga51294bf9bf3763fa1d2eaf8ee7358cde"><div class="ttname"><a href="group__fs.html#ga51294bf9bf3763fa1d2eaf8ee7358cde">BLK</a></div><div class="ttdeci">block_t BLK[]</div><div class="ttdoc">全局块数据。</div></div>
+<div class="ttc" id="ainode_8h_html"><div class="ttname"><a href="inode_8h.html">inode.h</a></div><div class="ttdoc">定义inode。</div></div>
+<div class="ttc" id="astructinode_html"><div class="ttname"><a href="structinode.html">inode</a></div><div class="ttdoc">描述inode结点。</div><div class="ttdef"><b>Definition:</b> inode.h:17</div></div>
+<div class="ttc" id="aunionblock_html"><div class="ttname"><a href="unionblock.html">block</a></div><div class="ttdoc">定义文件系统数据块。</div><div class="ttdef"><b>Definition:</b> block.h:26</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

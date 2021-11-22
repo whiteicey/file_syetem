@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CMJFS: include/sys/permission.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CMJFS
+   &#160;<span id="projectnumber">0.2</span>
+   </div>
+   <div id="projectbrief">一个由cmj完成的FS。</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_317ea3797c15f4a1d9c156bc812661ca.html">sys</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">permission.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="permission_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef __CMJFS__SYS_FS__PERMISSION_H__</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define __CMJFS__SYS_FS__PERMISSION_H__ 1</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="user_8h.html">user.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="group__permission.html#ga84c7dbf5cf2fdfb690f76348b60a8cb7">   17</a></span>&#160;<span class="preprocessor">#define S_IRUSR 0x00400</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="group__permission.html#gad70001754261c15a1bdc8e876c6d09d7">   19</a></span>&#160;<span class="preprocessor">#define S_IWUSR 0x00200</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="group__permission.html#gaf10a35e3950795d6ee4e07157d000131">   21</a></span>&#160;<span class="preprocessor">#define S_IXUSR 0x00100</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="group__permission.html#ga4f5f280b929768113739fb34d6f7be8a">   23</a></span>&#160;<span class="preprocessor">#define S_IRGRP 0x00040</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="group__permission.html#gae6774871a90d9442f00abe18b87fee6e">   25</a></span>&#160;<span class="preprocessor">#define S_IWGRP 0x00020</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="group__permission.html#ga042e69ac0e7dd56e5cfcd9e97d010323">   27</a></span>&#160;<span class="preprocessor">#define S_IXGRP 0x00010</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="group__permission.html#ga071147a0cb995036967c80f64b1f74b9">   29</a></span>&#160;<span class="preprocessor">#define S_IROTH 0x00004</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="group__permission.html#ga5303f49f26293acdb9533756c78322fb">   31</a></span>&#160;<span class="preprocessor">#define S_IWOTH 0x00002</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="group__permission.html#ga40223db1b95a04f5b28cceb3c34cfebd">   33</a></span>&#160;<span class="preprocessor">#define S_IXOTH 0x00001</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="group__permission.html#ga24a7a0ceb1e8f5f44cb1038bb829030d">   35</a></span>&#160;<span class="preprocessor">#define R_OK 0x04</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="group__permission.html#gae5acf4043c0903cda7436b108e29e8e6">   37</a></span>&#160;<span class="preprocessor">#define W_OK 0x02</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="group__permission.html#ga5e995ef7690698b62bf016b14fbc45ca">   39</a></span>&#160;<span class="preprocessor">#define X_OK 0x01</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="group__permission.html#ga54ca840ef047804fc85430b63983bca7">   42</a></span>&#160;<span class="preprocessor">#define HAVE_ACCESS(ino,mode,ch) (inode[ino].i_stat.st_mode &amp; mode ? ch : &#39;-&#39;)</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">// TODO: 三种特殊权限码</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="group__permission.html#ga99502b621ce1290a27c9dc3f9f1b1ff6">   54</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__permission.html#ga99502b621ce1290a27c9dc3f9f1b1ff6">access</a>(<span class="keyword">const</span> <a class="code" href="structuser.html">user_t</a>* <a class="code" href="structuser.html">user</a>, <span class="keywordtype">int</span> ino, <span class="keywordtype">int</span> mode);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// __CMJFS__SYS_FS__PERMISSION_H__</span></div>
+<div class="ttc" id="agroup__permission_html_ga99502b621ce1290a27c9dc3f9f1b1ff6"><div class="ttname"><a href="group__permission.html#ga99502b621ce1290a27c9dc3f9f1b1ff6">access</a></div><div class="ttdeci">int access(const user_t *user, int ino, int mode)</div><div class="ttdoc">验证用户权限。</div></div>
+<div class="ttc" id="astructuser_html"><div class="ttname"><a href="structuser.html">user</a></div><div class="ttdoc">描述一个用户的信息。</div><div class="ttdef"><b>Definition:</b> user.h:15</div></div>
+<div class="ttc" id="auser_8h_html"><div class="ttname"><a href="user_8h.html">user.h</a></div><div class="ttdoc">定义用户信息和用户操作。</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

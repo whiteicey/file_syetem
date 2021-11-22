@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CMJFS: include/sys/fs/types/block.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CMJFS
+   &#160;<span id="projectnumber">0.2</span>
+   </div>
+   <div id="projectbrief">一个由cmj完成的FS。</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_317ea3797c15f4a1d9c156bc812661ca.html">sys</a></li><li class="navelem"><a class="el" href="dir_4c59289196528cf625853e7eee5e3c24.html">fs</a></li><li class="navelem"><a class="el" href="dir_3cd8e5435d9be8e3ef9dd09652329c0a.html">types</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">block.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="block_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef __CMJFS__SYS_FS_TYPES__BLOCK_H__</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define __CMJFS__SYS_FS_TYPES__BLOCK_H__ 1</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;../../../config.h&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="dir_8h.html">dir.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="dirents_8h.html">dirents.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="unionblock.html">   26</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">union </span><a class="code" href="unionblock.html">block</a> {</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="unionblock.html#abe26c4bc56b80b1c48c4946210d26f31">   28</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="unionblock.html#abe26c4bc56b80b1c48c4946210d26f31">str</a>[<a class="code" href="group__config.html#gad51ded0bbd705f02f73fc60c0b721ced">BLOCK_SIZE</a>];</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="unionblock.html#ade74ee923acbdf0634becc0f7cee6687">   30</a></span>&#160;    <a class="code" href="structdir.html">dir_t</a> <a class="code" href="unionblock.html#ade74ee923acbdf0634becc0f7cee6687">dentry</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="unionblock.html#a31735b2e54c518206f6856eed44de23a">   32</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="unionblock.html#a31735b2e54c518206f6856eed44de23a">index</a>[<a class="code" href="group__config.html#gad51ded0bbd705f02f73fc60c0b721ced">BLOCK_SIZE</a> / <span class="keyword">sizeof</span>(int)];</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="unionblock.html#a0b1b6d79ccf4c57efcfa26393bcd5f5c">   34</a></span>&#160;    <a class="code" href="structdirents.html">dirents_t</a> <a class="code" href="unionblock.html#a0b1b6d79ccf4c57efcfa26393bcd5f5c">dentrys</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="group__fs__struct.html#gaeac4cdf7303e3047b0eb7bec7ebb7399">   35</a></span>&#160;} <a class="code" href="group__fs__struct.html#gaeac4cdf7303e3047b0eb7bec7ebb7399">block_t</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// __CMJFS__SYS_FS_TYPES__BLOCK_H__</span></div>
+<div class="ttc" id="adir_8h_html"><div class="ttname"><a href="dir_8h.html">dir.h</a></div><div class="ttdoc">定义struct dir结构。</div></div>
+<div class="ttc" id="adirents_8h_html"><div class="ttname"><a href="dirents_8h.html">dirents.h</a></div><div class="ttdoc">定义struct dirents。</div></div>
+<div class="ttc" id="agroup__config_html_gad51ded0bbd705f02f73fc60c0b721ced"><div class="ttname"><a href="group__config.html#gad51ded0bbd705f02f73fc60c0b721ced">BLOCK_SIZE</a></div><div class="ttdeci">#define BLOCK_SIZE</div><div class="ttdoc">指定块尺寸。必须是2的幂。</div><div class="ttdef"><b>Definition:</b> config.h:17</div></div>
+<div class="ttc" id="agroup__fs__struct_html_gaeac4cdf7303e3047b0eb7bec7ebb7399"><div class="ttname"><a href="group__fs__struct.html#gaeac4cdf7303e3047b0eb7bec7ebb7399">block_t</a></div><div class="ttdeci">union block block_t</div><div class="ttdoc">定义文件系统数据块。</div></div>
+<div class="ttc" id="astructdir_html"><div class="ttname"><a href="structdir.html">dir</a></div><div class="ttdoc">描述目录结构。</div><div class="ttdef"><b>Definition:</b> dir.h:23</div></div>
+<div class="ttc" id="astructdirents_html"><div class="ttname"><a href="structdirents.html">dirents</a></div><div class="ttdoc">扩展目录结构。</div><div class="ttdef"><b>Definition:</b> dirents.h:15</div></div>
+<div class="ttc" id="aunionblock_html"><div class="ttname"><a href="unionblock.html">block</a></div><div class="ttdoc">定义文件系统数据块。</div><div class="ttdef"><b>Definition:</b> block.h:26</div></div>
+<div class="ttc" id="aunionblock_html_a0b1b6d79ccf4c57efcfa26393bcd5f5c"><div class="ttname"><a href="unionblock.html#a0b1b6d79ccf4c57efcfa26393bcd5f5c">block::dentrys</a></div><div class="ttdeci">dirents_t dentrys</div><div class="ttdoc">扩展目录结构</div><div class="ttdef"><b>Definition:</b> block.h:34</div></div>
+<div class="ttc" id="aunionblock_html_a31735b2e54c518206f6856eed44de23a"><div class="ttname"><a href="unionblock.html#a31735b2e54c518206f6856eed44de23a">block::index</a></div><div class="ttdeci">int index[BLOCK_SIZE/sizeof(int)]</div><div class="ttdoc">索引块</div><div class="ttdef"><b>Definition:</b> block.h:32</div></div>
+<div class="ttc" id="aunionblock_html_abe26c4bc56b80b1c48c4946210d26f31"><div class="ttname"><a href="unionblock.html#abe26c4bc56b80b1c48c4946210d26f31">block::str</a></div><div class="ttdeci">char str[BLOCK_SIZE]</div><div class="ttdoc">数据块</div><div class="ttdef"><b>Definition:</b> block.h:28</div></div>
+<div class="ttc" id="aunionblock_html_ade74ee923acbdf0634becc0f7cee6687"><div class="ttname"><a href="unionblock.html#ade74ee923acbdf0634becc0f7cee6687">block::dentry</a></div><div class="ttdeci">dir_t dentry</div><div class="ttdoc">目录块</div><div class="ttdef"><b>Definition:</b> block.h:30</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

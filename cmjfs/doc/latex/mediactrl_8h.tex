@@ -1,0 +1,45 @@
+\doxysection{include/sys/fs/mediactrl.h 文件参考}
+\label{mediactrl_8h}\index{include/sys/fs/mediactrl.h@{include/sys/fs/mediactrl.h}}
+
+
+实现基本的介质管理。  
+
+
+{\ttfamily \#include \char`\"{}types/block.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}types/inode.\+h\char`\"{}}\newline
+mediactrl.\+h 的引用(Include)关系图\+:
+% FIG 0
+\doxysubsection*{宏定义}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries SET\+\_\+\+BLK\+\_\+\+FLAG}(i)~(\mbox{\hyperlink{group__bitmap_gab2b3dcafcfc63acc07315a3c2ee4c7a7}{blk\+\_\+flag}}\mbox{[}i / CHAR\+\_\+\+BIT\mbox{]} $\vert$= \textquotesingle{}\textbackslash{}x01\textquotesingle{} $<$$<$ (i \% CHAR\+\_\+\+BIT))
+\item 
+\#define \mbox{\hyperlink{group__bitmap_gacb95a67dec2ec9cfc143783dbee4afac}{TEST\+\_\+\+BLK\+\_\+\+FLAG}}(i)~(\mbox{\hyperlink{group__bitmap_gab2b3dcafcfc63acc07315a3c2ee4c7a7}{blk\+\_\+flag}}\mbox{[}i / CHAR\+\_\+\+BIT\mbox{]} \& \textquotesingle{}\textbackslash{}x01\textquotesingle{} $<$$<$ (i \% CHAR\+\_\+\+BIT) ? 1 \+: 0)
+\begin{DoxyCompactList}\small\item\em 检查标识位 \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__bitmap_gaa718e268ef6d3b18fcc65b0fc572d715}{CLEAR\+\_\+\+BLK\+\_\+\+FLAG}}(i)~(\mbox{\hyperlink{group__bitmap_gab2b3dcafcfc63acc07315a3c2ee4c7a7}{blk\+\_\+flag}}\mbox{[}i / CHAR\+\_\+\+BIT\mbox{]} $^\wedge$= \textquotesingle{}\textbackslash{}x01\textquotesingle{} $<$$<$ (i \% CHAR\+\_\+\+BIT))
+\begin{DoxyCompactList}\small\item\em 清除标识位 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__action_gaf251a464625dab5014cf87a3c5065936}{acq\+\_\+blk}} ()
+\begin{DoxyCompactList}\small\item\em 申请一个新块。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{变量}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__fs__struct_gaeac4cdf7303e3047b0eb7bec7ebb7399}{block\+\_\+t}} \mbox{\hyperlink{group__fs_ga51294bf9bf3763fa1d2eaf8ee7358cde}{BLK}} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em 全局块数据。 \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{group__bitmap_gab2b3dcafcfc63acc07315a3c2ee4c7a7}{blk\+\_\+flag}} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em 位图管理，指示哪些块可用。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__fs__struct_ga2dd256afc91a2d7a99e2082e096664b2}{inode\+\_\+t}} \mbox{\hyperlink{group__fs_gac7a8a58e6667c9f46a80ad76dc3dbf60}{inode}} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em 全局inode数据。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+实现基本的介质管理。 
+
+\begin{DoxyVersion}{版本}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{日期}
+2021-\/11-\/14 
+\end{DoxyDate}

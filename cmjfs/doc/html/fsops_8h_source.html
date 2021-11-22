@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CMJFS: include/sys/fs/fsops.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CMJFS
+   &#160;<span id="projectnumber">0.2</span>
+   </div>
+   <div id="projectbrief">一个由cmj完成的FS。</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_317ea3797c15f4a1d9c156bc812661ca.html">sys</a></li><li class="navelem"><a class="el" href="dir_4c59289196528cf625853e7eee5e3c24.html">fs</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">fsops.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="fsops_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef __CMJFS__SYS_FS__FS_H__</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define __CMJFS__SYS_FS__FS_H__ 1</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="dir_8h.html">types/dir.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;../user.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="group__action.html#ga1aaa48b192a5dd3b6d7ee91fc98cd17d">   18</a></span>&#160;<span class="preprocessor">#define S_IFREG 0x0100000</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="group__action.html#ga11fb0652b963a735f3377eb1c9239f2d">   20</a></span>&#160;<span class="preprocessor">#define S_IFDIR 0x0040000</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="group__action.html#ga3212f3e7a4bdeb6d56ceac3c602fbf2a">   22</a></span>&#160;<span class="preprocessor">#define RECURSIVE 0x800</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="group__action.html#gab9b6a053e42fa67776468f7902fda384">   25</a></span>&#160;<span class="preprocessor">#define GET_BLKN(ino,n) (BLK[inode[ino].blk1[n]])</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">// NOTE：这，，，真就只有直接索引？</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">// TODO: 修改这个东西，我猜可能没法用宏来实现</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="group__action.html#ga124c77d95528610b97a09ee0c1a22182">   30</a></span>&#160;<span class="preprocessor">#define GET_PAGE(ino,page) (page &gt;= 10 ? BLK[inode[ino].blk2].index[page-10] : inode[ino].blk1[page])</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="group__action.html#gab4c0bc284123408f3a8886f675f20189">   32</a></span>&#160;<span class="preprocessor">#define GET_CHAR(ino,page,offset) (BLK[GET_PAGE(ino,page)].str[offset])</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">// NOTE：宏必须加括号，这是原则。这里我帮你加上了。这样的原则是为了防止疏忽和减少维护成本。</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">// 以及，为什么是page不是block？</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="group__action.html#ga2df77b974df1c417db14d98b954fda67">   42</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__action.html#ga2df77b974df1c417db14d98b954fda67">add_blk_for_file</a>(<span class="keywordtype">int</span> ino);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="group__action.html#gad41f5224ad12cefbac463c619a923e9d">   52</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__action.html#gad41f5224ad12cefbac463c619a923e9d">find_name_in_dir</a>(<span class="keywordtype">int</span> ino, <span class="keyword">const</span> <span class="keywordtype">char</span>* name, <span class="keywordtype">int</span> mode);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="group__action.html#gac72355a82d45ea4621cccaf53e652ba9">   62</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__action.html#gac72355a82d45ea4621cccaf53e652ba9">creat_stat</a>(<span class="keyword">const</span> <a class="code" href="structuser.html">user_t</a>* <a class="code" href="structuser.html">user</a>, <span class="keywordtype">int</span> ino, <span class="keywordtype">int</span> mode);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="group__action.html#ga3a688c5497765cdf4f5bc44e721c8dff">   74</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__action.html#ga3a688c5497765cdf4f5bc44e721c8dff">creat_dirent</a>(<span class="keywordtype">int</span> fino, <span class="keywordtype">int</span> ino, <span class="keyword">const</span> <span class="keywordtype">char</span>* name);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="group__action.html#ga9451e0f3cc55dc7da04b79e88e45e0e7">   88</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__action.html#ga9451e0f3cc55dc7da04b79e88e45e0e7">creat_dir</a>(<span class="keywordtype">int</span> ino, <span class="keywordtype">int</span> f_ino, <span class="keyword">const</span> <span class="keywordtype">char</span>* dir_name);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">// TODO: 检查潜在bug</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="group__action.html#ga91cb6626f30684259e0296ede7113552">   96</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__action.html#ga91cb6626f30684259e0296ede7113552">creat_ino</a>();</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="group__action.html#ga201537deda30a51cb96dc48937c81b96">  107</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__action.html#ga201537deda30a51cb96dc48937c81b96">creat</a>(<span class="keyword">const</span> <a class="code" href="structuser.html">user_t</a>* <a class="code" href="structuser.html">user</a>, <span class="keywordtype">int</span> cwd, <span class="keyword">const</span> <span class="keywordtype">char</span>* args, <span class="keywordtype">int</span> mode);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">// TODO: 你truncate呢？？这个调用很重要啊</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="group__action.html#gad1fbab6bd7c1201c8a46066187524467">  120</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__action.html#gad1fbab6bd7c1201c8a46066187524467">mkdir</a>(<span class="keyword">const</span> <a class="code" href="structuser.html">user_t</a>* <a class="code" href="structuser.html">user</a>, <span class="keywordtype">int</span> cwd, <span class="keyword">const</span> <span class="keywordtype">char</span>* dir_name, <span class="keywordtype">int</span> mode);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="group__action.html#gad5e668677b4acfc76c5f0d23df13b0ca">  130</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__action.html#gad5e668677b4acfc76c5f0d23df13b0ca">ls</a>(<span class="keywordtype">int</span> ino, <span class="keywordtype">char</span>* args);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="group__action.html#gaee21f23fd7e6debe3c36a5e2011c2744">  139</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__action.html#gaee21f23fd7e6debe3c36a5e2011c2744">pwd</a>(<span class="keywordtype">int</span> cwd, <span class="keywordtype">char</span>* buf, <span class="keywordtype">int</span> ino);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="group__action.html#gad644cc5abdd989cc4954c8fea05ddf9e">  148</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__action.html#gad644cc5abdd989cc4954c8fea05ddf9e">cd</a>(<span class="keyword">const</span> <a class="code" href="structuser.html">user_t</a>* <a class="code" href="structuser.html">user</a>, <span class="keywordtype">int</span>* cwd, <span class="keyword">const</span> <span class="keywordtype">char</span>* dir_name);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno"><a class="line" href="group__action.html#ga33db0cb019e13ef6feaa3152c5c4320f">  159</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__action.html#ga33db0cb019e13ef6feaa3152c5c4320f">rm_dir_item</a>(<a class="code" href="structdir.html">dir_t</a>* d, <span class="keywordtype">int</span> n);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno"><a class="line" href="group__action.html#gab19526a6d1d83ee5c8027f7e2cebff08">  170</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__action.html#gab19526a6d1d83ee5c8027f7e2cebff08">rm</a>(<span class="keyword">const</span> <a class="code" href="structuser.html">user_t</a>* <a class="code" href="structuser.html">user</a>, <span class="keywordtype">int</span> cwd, <span class="keyword">const</span> <span class="keywordtype">char</span>* args, <span class="keywordtype">int</span> workIno, <span class="keywordtype">int</span> mode);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
+<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="group__action.html#gaad581cfec7c1e716d12250c62b990c7e">  180</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__action.html#gaad581cfec7c1e716d12250c62b990c7e">rmdir</a>(<span class="keyword">const</span> <a class="code" href="structuser.html">user_t</a>* <a class="code" href="structuser.html">user</a>, <span class="keywordtype">int</span> cwd, <span class="keywordtype">char</span>* dir_name, <span class="keywordtype">int</span> mode);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
+<div class="line"><a name="l00189"></a><span class="lineno"><a class="line" href="group__action.html#ga0213b17b7757493ebc884eb4b43d4781">  189</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__action.html#ga0213b17b7757493ebc884eb4b43d4781">creat_file</a>(<span class="keyword">const</span> <a class="code" href="structuser.html">user_t</a>* <a class="code" href="structuser.html">user</a>, <span class="keywordtype">int</span> cwd, <span class="keyword">const</span> <span class="keywordtype">char</span>* args);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
+<div class="line"><a name="l00199"></a><span class="lineno"><a class="line" href="group__action.html#gabf958ac083a62ac07ad2a1ac9c08249e">  199</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__action.html#gabf958ac083a62ac07ad2a1ac9c08249e">open_file</a>(<span class="keyword">const</span> <a class="code" href="structuser.html">user_t</a>* <a class="code" href="structuser.html">user</a>, <span class="keywordtype">int</span> cwd, <span class="keyword">const</span> <span class="keywordtype">char</span>* args);</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
+<div class="line"><a name="l00210"></a><span class="lineno"><a class="line" href="group__action.html#ga4cb8335cb0c492df9223950070a8131b">  210</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__action.html#ga4cb8335cb0c492df9223950070a8131b">read_file</a>(<span class="keyword">const</span> <a class="code" href="structuser.html">user_t</a>* <a class="code" href="structuser.html">user</a>, <span class="keywordtype">int</span> cwd, <span class="keywordtype">int</span> argc, <span class="keyword">const</span> <span class="keywordtype">char</span>* argv[]);</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
+<div class="line"><a name="l00221"></a><span class="lineno"><a class="line" href="group__action.html#gaa3294bebf3407cea459ff8260696eefa">  221</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__action.html#gaa3294bebf3407cea459ff8260696eefa">write_file</a>(<span class="keyword">const</span> <a class="code" href="structuser.html">user_t</a>* <a class="code" href="structuser.html">user</a>, <span class="keywordtype">int</span> cwd, <span class="keywordtype">int</span> argc, <span class="keyword">const</span> <span class="keywordtype">char</span>* argv[]);</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
+<div class="line"><a name="l00233"></a><span class="lineno"><a class="line" href="group__action.html#ga0cf0da30de85a6e1ceda71951688dd79">  233</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__action.html#ga0cf0da30de85a6e1ceda71951688dd79">link_file</a>(<span class="keywordtype">int</span> cwd, <span class="keywordtype">int</span> argc, <span class="keyword">const</span> <span class="keywordtype">char</span>* argv[]);</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160; </div>
+<div class="line"><a name="l00242"></a><span class="lineno"><a class="line" href="group__action.html#ga8b1b50f653507747543a21994e42a331">  242</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__action.html#ga8b1b50f653507747543a21994e42a331">find_file</a>(<span class="keywordtype">int</span> cwd, <span class="keyword">const</span> <span class="keywordtype">char</span>* args, <span class="keywordtype">int</span> ino);</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160; </div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// __CMJFS__SYS_FS__FS_H__</span></div>
+<div class="ttc" id="adir_8h_html"><div class="ttname"><a href="dir_8h.html">dir.h</a></div><div class="ttdoc">定义struct dir结构。</div></div>
+<div class="ttc" id="agroup__action_html_ga0213b17b7757493ebc884eb4b43d4781"><div class="ttname"><a href="group__action.html#ga0213b17b7757493ebc884eb4b43d4781">creat_file</a></div><div class="ttdeci">void creat_file(const user_t *user, int cwd, const char *args)</div><div class="ttdoc">创建文件。</div></div>
+<div class="ttc" id="agroup__action_html_ga0cf0da30de85a6e1ceda71951688dd79"><div class="ttname"><a href="group__action.html#ga0cf0da30de85a6e1ceda71951688dd79">link_file</a></div><div class="ttdeci">int link_file(int cwd, int argc, const char *argv[])</div><div class="ttdoc">创建硬链接。</div></div>
+<div class="ttc" id="agroup__action_html_ga201537deda30a51cb96dc48937c81b96"><div class="ttname"><a href="group__action.html#ga201537deda30a51cb96dc48937c81b96">creat</a></div><div class="ttdeci">int creat(const user_t *user, int cwd, const char *args, int mode)</div><div class="ttdoc">创建文件。</div></div>
+<div class="ttc" id="agroup__action_html_ga2df77b974df1c417db14d98b954fda67"><div class="ttname"><a href="group__action.html#ga2df77b974df1c417db14d98b954fda67">add_blk_for_file</a></div><div class="ttdeci">int add_blk_for_file(int ino)</div><div class="ttdoc">为文件申请新的数据块。</div></div>
+<div class="ttc" id="agroup__action_html_ga33db0cb019e13ef6feaa3152c5c4320f"><div class="ttname"><a href="group__action.html#ga33db0cb019e13ef6feaa3152c5c4320f">rm_dir_item</a></div><div class="ttdeci">int rm_dir_item(dir_t *d, int n)</div><div class="ttdoc">删除指定目录下的第n项。</div></div>
+<div class="ttc" id="agroup__action_html_ga3a688c5497765cdf4f5bc44e721c8dff"><div class="ttname"><a href="group__action.html#ga3a688c5497765cdf4f5bc44e721c8dff">creat_dirent</a></div><div class="ttdeci">int creat_dirent(int fino, int ino, const char *name)</div><div class="ttdoc">为文件创建目录入口。</div></div>
+<div class="ttc" id="agroup__action_html_ga4cb8335cb0c492df9223950070a8131b"><div class="ttname"><a href="group__action.html#ga4cb8335cb0c492df9223950070a8131b">read_file</a></div><div class="ttdeci">int read_file(const user_t *user, int cwd, int argc, const char *argv[])</div><div class="ttdoc">读取文件。</div></div>
+<div class="ttc" id="agroup__action_html_ga8b1b50f653507747543a21994e42a331"><div class="ttname"><a href="group__action.html#ga8b1b50f653507747543a21994e42a331">find_file</a></div><div class="ttdeci">void find_file(int cwd, const char *args, int ino)</div><div class="ttdoc">查找文件。</div></div>
+<div class="ttc" id="agroup__action_html_ga91cb6626f30684259e0296ede7113552"><div class="ttname"><a href="group__action.html#ga91cb6626f30684259e0296ede7113552">creat_ino</a></div><div class="ttdeci">int creat_ino()</div><div class="ttdoc">分配inode。</div></div>
+<div class="ttc" id="agroup__action_html_ga9451e0f3cc55dc7da04b79e88e45e0e7"><div class="ttname"><a href="group__action.html#ga9451e0f3cc55dc7da04b79e88e45e0e7">creat_dir</a></div><div class="ttdeci">int creat_dir(int ino, int f_ino, const char *dir_name)</div><div class="ttdoc">为文件分配struct dir结构。</div></div>
+<div class="ttc" id="agroup__action_html_gaa3294bebf3407cea459ff8260696eefa"><div class="ttname"><a href="group__action.html#gaa3294bebf3407cea459ff8260696eefa">write_file</a></div><div class="ttdeci">int write_file(const user_t *user, int cwd, int argc, const char *argv[])</div><div class="ttdoc">写入文件。</div></div>
+<div class="ttc" id="agroup__action_html_gaad581cfec7c1e716d12250c62b990c7e"><div class="ttname"><a href="group__action.html#gaad581cfec7c1e716d12250c62b990c7e">rmdir</a></div><div class="ttdeci">void rmdir(const user_t *user, int cwd, char *dir_name, int mode)</div><div class="ttdoc">删除目录。</div></div>
+<div class="ttc" id="agroup__action_html_gab19526a6d1d83ee5c8027f7e2cebff08"><div class="ttname"><a href="group__action.html#gab19526a6d1d83ee5c8027f7e2cebff08">rm</a></div><div class="ttdeci">void rm(const user_t *user, int cwd, const char *args, int workIno, int mode)</div><div class="ttdoc">删除指定文件。</div></div>
+<div class="ttc" id="agroup__action_html_gabf958ac083a62ac07ad2a1ac9c08249e"><div class="ttname"><a href="group__action.html#gabf958ac083a62ac07ad2a1ac9c08249e">open_file</a></div><div class="ttdeci">int open_file(const user_t *user, int cwd, const char *args)</div><div class="ttdoc">打开文件。</div></div>
+<div class="ttc" id="agroup__action_html_gac72355a82d45ea4621cccaf53e652ba9"><div class="ttname"><a href="group__action.html#gac72355a82d45ea4621cccaf53e652ba9">creat_stat</a></div><div class="ttdeci">int creat_stat(const user_t *user, int ino, int mode)</div><div class="ttdoc">创建文件的stat。</div></div>
+<div class="ttc" id="agroup__action_html_gad1fbab6bd7c1201c8a46066187524467"><div class="ttname"><a href="group__action.html#gad1fbab6bd7c1201c8a46066187524467">mkdir</a></div><div class="ttdeci">int mkdir(const user_t *user, int cwd, const char *dir_name, int mode)</div><div class="ttdoc">创建目录。</div></div>
+<div class="ttc" id="agroup__action_html_gad41f5224ad12cefbac463c619a923e9d"><div class="ttname"><a href="group__action.html#gad41f5224ad12cefbac463c619a923e9d">find_name_in_dir</a></div><div class="ttdeci">int find_name_in_dir(int ino, const char *name, int mode)</div><div class="ttdoc">在指定目录下查找具有指定名称的文件。</div></div>
+<div class="ttc" id="agroup__action_html_gad5e668677b4acfc76c5f0d23df13b0ca"><div class="ttname"><a href="group__action.html#gad5e668677b4acfc76c5f0d23df13b0ca">ls</a></div><div class="ttdeci">void ls(int ino, char *args)</div><div class="ttdoc">查看目录信息。</div></div>
+<div class="ttc" id="agroup__action_html_gad644cc5abdd989cc4954c8fea05ddf9e"><div class="ttname"><a href="group__action.html#gad644cc5abdd989cc4954c8fea05ddf9e">cd</a></div><div class="ttdeci">void cd(const user_t *user, int *cwd, const char *dir_name)</div><div class="ttdoc">修改指定用户的工作目录。</div></div>
+<div class="ttc" id="agroup__action_html_gaee21f23fd7e6debe3c36a5e2011c2744"><div class="ttname"><a href="group__action.html#gaee21f23fd7e6debe3c36a5e2011c2744">pwd</a></div><div class="ttdeci">void pwd(int cwd, char *buf, int ino)</div><div class="ttdoc">取得指定inode的目录名。</div></div>
+<div class="ttc" id="astructdir_html"><div class="ttname"><a href="structdir.html">dir</a></div><div class="ttdoc">描述目录结构。</div><div class="ttdef"><b>Definition:</b> dir.h:23</div></div>
+<div class="ttc" id="astructuser_html"><div class="ttname"><a href="structuser.html">user</a></div><div class="ttdoc">描述一个用户的信息。</div><div class="ttdef"><b>Definition:</b> user.h:15</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

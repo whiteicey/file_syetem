@@ -1,0 +1,71 @@
+\doxysection{结构}
+\label{group__fs__struct}\index{结构@{结构}}
+结构 的协作图\+:
+% FIG 0
+\doxysubsection*{结构体}
+\begin{DoxyCompactItemize}
+\item 
+union \mbox{\hyperlink{unionblock}{block}}
+\begin{DoxyCompactList}\small\item\em 定义文件系统数据块。 \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structdir}{dir}}
+\begin{DoxyCompactList}\small\item\em 描述目录结构。 \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structdirent}{dirent}}
+\begin{DoxyCompactList}\small\item\em 描述一个项目的入口。 \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structdirents}{dirents}}
+\begin{DoxyCompactList}\small\item\em 扩展目录结构。 \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structinode}{inode}}
+\begin{DoxyCompactList}\small\item\em 描述inode结点。 \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structstat}{stat}}
+\begin{DoxyCompactList}\small\item\em 描述一个inode的基本信息。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{类型定义}
+\begin{DoxyCompactItemize}
+\item 
+typedef union \mbox{\hyperlink{unionblock}{block}} \mbox{\hyperlink{group__fs__struct_gaeac4cdf7303e3047b0eb7bec7ebb7399}{block\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em 定义文件系统数据块。 \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{structdir}{dir}} \mbox{\hyperlink{group__fs__struct_gafbbd3b1f6ddcd58269675a5727e1c80f}{dir\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em 描述目录结构。 \end{DoxyCompactList}\item 
+\mbox{\label{group__fs__struct_ga6673e8f64ca9ebd7e26e6289dca06e87}} 
+typedef struct \mbox{\hyperlink{structdirent}{dirent}} \mbox{\hyperlink{group__fs__struct_ga6673e8f64ca9ebd7e26e6289dca06e87}{dirent\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em 描述一个项目的入口。 \end{DoxyCompactList}\item 
+\mbox{\label{group__fs__struct_ga75da1ce0d30c8293aca4876a223db15a}} 
+typedef struct \mbox{\hyperlink{structdirents}{dirents}} \mbox{\hyperlink{group__fs__struct_ga75da1ce0d30c8293aca4876a223db15a}{dirents\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em 扩展目录结构。 \end{DoxyCompactList}\item 
+\mbox{\label{group__fs__struct_ga2dd256afc91a2d7a99e2082e096664b2}} 
+typedef struct \mbox{\hyperlink{structinode}{inode}} \mbox{\hyperlink{group__fs__struct_ga2dd256afc91a2d7a99e2082e096664b2}{inode\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em 描述inode结点。 \end{DoxyCompactList}\item 
+\mbox{\label{group__fs__struct_gaebb3d0e746d3aa086e0baa48ad66b964}} 
+typedef struct \mbox{\hyperlink{structstat}{stat}} \mbox{\hyperlink{group__fs__struct_gaebb3d0e746d3aa086e0baa48ad66b964}{stat\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em 描述一个inode的基本信息。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{类型定义说明}
+\mbox{\label{group__fs__struct_gaeac4cdf7303e3047b0eb7bec7ebb7399}} 
+\index{结构@{结构}!block\_t@{block\_t}}
+\index{block\_t@{block\_t}!结构@{结构}}
+\doxysubsubsection{\texorpdfstring{block\_t}{block\_t}}
+{\footnotesize\ttfamily typedef union \mbox{\hyperlink{unionblock}{block}} \mbox{\hyperlink{group__fs__struct_gaeac4cdf7303e3047b0eb7bec7ebb7399}{block\+\_\+t}}}
+
+
+
+定义文件系统数据块。 
+
+NOTE：我们真的$\ast$$\ast$非常不建议$\ast$$\ast$这样使用union！初始化一个域后访问其他域是\+UB。 建议额外用一个字段记录union里面存的到底是什么，或者干脆改用类似void$\ast$的东西。
+
+NOTE2：我在这里做了少许修改。你内嵌定义了一个union，但没有定义变量。认真的？ NOTE3：鉴于实现比较怪（真正的dentry肯定不是这么存的），不进行block\+\_\+t是否能存下dir\+\_\+t和dirents\+\_\+t的校验。 \mbox{\label{group__fs__struct_gafbbd3b1f6ddcd58269675a5727e1c80f}} 
+\index{结构@{结构}!dir\_t@{dir\_t}}
+\index{dir\_t@{dir\_t}!结构@{结构}}
+\doxysubsubsection{\texorpdfstring{dir\_t}{dir\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structdir}{dir}} \mbox{\hyperlink{group__fs__struct_gafbbd3b1f6ddcd58269675a5727e1c80f}{dir\+\_\+t}}}
+
+
+
+描述目录结构。 
+
+本质上是产生一个树形数据结构。~\newline
+ 注意：记得依次释放dir\+\_\+list的内容，以免内存泄漏。~\newline
+
+
+NOTE：ext4底层真的是这样的吗？我不确定，以后看看 

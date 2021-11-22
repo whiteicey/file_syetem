@@ -1,0 +1,67 @@
+\doxysection{交互接口}
+\label{group__io}\index{交互接口@{交互接口}}
+交互接口 的协作图\+:
+% FIG 0
+\doxysubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{group__io_ga15602015797966559a85ceb022add089}{readline}} (const char $\ast$str)
+\begin{DoxyCompactList}\small\item\em 读入指令。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__io_gafa92c72aba5896583d7983e96c665a08}{add\+\_\+history}} (char $\ast$p)
+\begin{DoxyCompactList}\small\item\em 向指令历史添加指令。（未完成） \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group__io_ga806da0fa98395c0645d191b325094bde}{rl\+\_\+gets}} ()
+\begin{DoxyCompactList}\small\item\em 接受输入字符。不可重入。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{函数说明}
+\mbox{\label{group__io_gafa92c72aba5896583d7983e96c665a08}} 
+\index{交互接口@{交互接口}!add\_history@{add\_history}}
+\index{add\_history@{add\_history}!交互接口@{交互接口}}
+\doxysubsubsection{\texorpdfstring{add\_history()}{add\_history()}}
+{\footnotesize\ttfamily void add\+\_\+history (\begin{DoxyParamCaption}\item[{char $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+向指令历史添加指令。（未完成） 
+
+
+\begin{DoxyParams}{参数}
+{\em p} & 待添加的指令 \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__io_ga15602015797966559a85ceb022add089}} 
+\index{交互接口@{交互接口}!readline@{readline}}
+\index{readline@{readline}!交互接口@{交互接口}}
+\doxysubsubsection{\texorpdfstring{readline()}{readline()}}
+{\footnotesize\ttfamily char$\ast$ readline (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+读入指令。 
+
+
+\begin{DoxyParams}{参数}
+{\em str} & 命令提示符（prompt） \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+char$\ast$ 读到的指令。 
+\end{DoxyReturn}
+\mbox{\label{group__io_ga806da0fa98395c0645d191b325094bde}} 
+\index{交互接口@{交互接口}!rl\_gets@{rl\_gets}}
+\index{rl\_gets@{rl\_gets}!交互接口@{交互接口}}
+\doxysubsubsection{\texorpdfstring{rl\_gets()}{rl\_gets()}}
+{\footnotesize\ttfamily char$\ast$ rl\+\_\+gets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+接受输入字符。不可重入。 
+
+尚未完成的读取历史指令
+
+\begin{DoxyReturn}{返回}
+char$\ast$ 读入的指令 
+\end{DoxyReturn}

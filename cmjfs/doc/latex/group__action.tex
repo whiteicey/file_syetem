@@ -1,0 +1,524 @@
+\doxysection{FS行为}
+\label{group__action}\index{FS行为@{FS行为}}
+FS行为 的协作图\+:
+% FIG 0
+\doxysubsection*{模块}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__bitmap}{位图}}
+\end{DoxyCompactItemize}
+\doxysubsection*{宏定义}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{group__action_ga1aaa48b192a5dd3b6d7ee91fc98cd17d}} 
+\#define \mbox{\hyperlink{group__action_ga1aaa48b192a5dd3b6d7ee91fc98cd17d}{S\+\_\+\+IFREG}}~0x0100000
+\begin{DoxyCompactList}\small\item\em 普通文件标识 \end{DoxyCompactList}\item 
+\mbox{\label{group__action_ga11fb0652b963a735f3377eb1c9239f2d}} 
+\#define \mbox{\hyperlink{group__action_ga11fb0652b963a735f3377eb1c9239f2d}{S\+\_\+\+IFDIR}}~0x0040000
+\begin{DoxyCompactList}\small\item\em 目录文件标识 \end{DoxyCompactList}\item 
+\mbox{\label{group__action_ga3212f3e7a4bdeb6d56ceac3c602fbf2a}} 
+\#define \mbox{\hyperlink{group__action_ga3212f3e7a4bdeb6d56ceac3c602fbf2a}{RECURSIVE}}~0x800
+\begin{DoxyCompactList}\small\item\em 递归行为标识 \end{DoxyCompactList}\item 
+\mbox{\label{group__action_gab9b6a053e42fa67776468f7902fda384}} 
+\#define \mbox{\hyperlink{group__action_gab9b6a053e42fa67776468f7902fda384}{GET\+\_\+\+BLKN}}(ino,  n)~(\mbox{\hyperlink{group__fs_ga51294bf9bf3763fa1d2eaf8ee7358cde}{BLK}}\mbox{[}\mbox{\hyperlink{structinode}{inode}}\mbox{[}ino\mbox{]}.blk1\mbox{[}n\mbox{]}\mbox{]})
+\begin{DoxyCompactList}\small\item\em 获取文件的第n个块 \end{DoxyCompactList}\item 
+\mbox{\label{group__action_ga124c77d95528610b97a09ee0c1a22182}} 
+\#define \mbox{\hyperlink{group__action_ga124c77d95528610b97a09ee0c1a22182}{GET\+\_\+\+PAGE}}(ino,  page)~(page $>$= 10 ? \mbox{\hyperlink{group__fs_ga51294bf9bf3763fa1d2eaf8ee7358cde}{BLK}}\mbox{[}\mbox{\hyperlink{structinode}{inode}}\mbox{[}ino\mbox{]}.blk2\mbox{]}.index\mbox{[}page-\/10\mbox{]} \+: \mbox{\hyperlink{structinode}{inode}}\mbox{[}ino\mbox{]}.blk1\mbox{[}page\mbox{]})
+\begin{DoxyCompactList}\small\item\em 获取文件的第n个块 \end{DoxyCompactList}\item 
+\mbox{\label{group__action_gab4c0bc284123408f3a8886f675f20189}} 
+\#define \mbox{\hyperlink{group__action_gab4c0bc284123408f3a8886f675f20189}{GET\+\_\+\+CHAR}}(ino,  page,  offset)~(\mbox{\hyperlink{group__fs_ga51294bf9bf3763fa1d2eaf8ee7358cde}{BLK}}\mbox{[}\mbox{\hyperlink{group__action_ga124c77d95528610b97a09ee0c1a22182}{GET\+\_\+\+PAGE}}(ino,page)\mbox{]}.str\mbox{[}offset\mbox{]})
+\begin{DoxyCompactList}\small\item\em 获取字符(？) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__action_ga2df77b974df1c417db14d98b954fda67}{add\+\_\+blk\+\_\+for\+\_\+file}} (int ino)
+\begin{DoxyCompactList}\small\item\em 为文件申请新的数据块。 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__action_gad41f5224ad12cefbac463c619a923e9d}{find\+\_\+name\+\_\+in\+\_\+dir}} (int ino, const char $\ast$name, int mode)
+\begin{DoxyCompactList}\small\item\em 在指定目录下查找具有指定名称的文件。 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__action_gac72355a82d45ea4621cccaf53e652ba9}{creat\+\_\+stat}} (const \mbox{\hyperlink{group__user_ga450623fc37d64234cf3afb2f91cd6bf0}{user\+\_\+t}} $\ast$\mbox{\hyperlink{structuser}{user}}, int ino, int mode)
+\begin{DoxyCompactList}\small\item\em 创建文件的stat。 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__action_ga3a688c5497765cdf4f5bc44e721c8dff}{creat\+\_\+dirent}} (int fino, int ino, const char $\ast$name)
+\begin{DoxyCompactList}\small\item\em 为文件创建目录入口。 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__action_ga9451e0f3cc55dc7da04b79e88e45e0e7}{creat\+\_\+dir}} (int ino, int f\+\_\+ino, const char $\ast$dir\+\_\+name)
+\begin{DoxyCompactList}\small\item\em 为文件分配struct dir结构。 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__action_ga91cb6626f30684259e0296ede7113552}{creat\+\_\+ino}} ()
+\begin{DoxyCompactList}\small\item\em 分配inode。 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__action_ga201537deda30a51cb96dc48937c81b96}{creat}} (const \mbox{\hyperlink{group__user_ga450623fc37d64234cf3afb2f91cd6bf0}{user\+\_\+t}} $\ast$\mbox{\hyperlink{structuser}{user}}, int cwd, const char $\ast$args, int mode)
+\begin{DoxyCompactList}\small\item\em 创建文件。 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__action_gad1fbab6bd7c1201c8a46066187524467}{mkdir}} (const \mbox{\hyperlink{group__user_ga450623fc37d64234cf3afb2f91cd6bf0}{user\+\_\+t}} $\ast$\mbox{\hyperlink{structuser}{user}}, int cwd, const char $\ast$dir\+\_\+name, int mode)
+\begin{DoxyCompactList}\small\item\em 创建目录。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__action_gad5e668677b4acfc76c5f0d23df13b0ca}{ls}} (int ino, char $\ast$args)
+\begin{DoxyCompactList}\small\item\em 查看目录信息。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__action_gaee21f23fd7e6debe3c36a5e2011c2744}{pwd}} (int cwd, char $\ast$buf, int ino)
+\begin{DoxyCompactList}\small\item\em 取得指定inode的目录名。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__action_gad644cc5abdd989cc4954c8fea05ddf9e}{cd}} (const \mbox{\hyperlink{group__user_ga450623fc37d64234cf3afb2f91cd6bf0}{user\+\_\+t}} $\ast$\mbox{\hyperlink{structuser}{user}}, int $\ast$cwd, const char $\ast$dir\+\_\+name)
+\begin{DoxyCompactList}\small\item\em 修改指定用户的工作目录。 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__action_ga33db0cb019e13ef6feaa3152c5c4320f}{rm\+\_\+dir\+\_\+item}} (\mbox{\hyperlink{group__fs__struct_gafbbd3b1f6ddcd58269675a5727e1c80f}{dir\+\_\+t}} $\ast$d, int n)
+\begin{DoxyCompactList}\small\item\em 删除指定目录下的第n项。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__action_gab19526a6d1d83ee5c8027f7e2cebff08}{rm}} (const \mbox{\hyperlink{group__user_ga450623fc37d64234cf3afb2f91cd6bf0}{user\+\_\+t}} $\ast$\mbox{\hyperlink{structuser}{user}}, int cwd, const char $\ast$args, int work\+Ino, int mode)
+\begin{DoxyCompactList}\small\item\em 删除指定文件。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__action_gaad581cfec7c1e716d12250c62b990c7e}{rmdir}} (const \mbox{\hyperlink{group__user_ga450623fc37d64234cf3afb2f91cd6bf0}{user\+\_\+t}} $\ast$\mbox{\hyperlink{structuser}{user}}, int cwd, char $\ast$dir\+\_\+name, int mode)
+\begin{DoxyCompactList}\small\item\em 删除目录。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__action_ga0213b17b7757493ebc884eb4b43d4781}{creat\+\_\+file}} (const \mbox{\hyperlink{group__user_ga450623fc37d64234cf3afb2f91cd6bf0}{user\+\_\+t}} $\ast$\mbox{\hyperlink{structuser}{user}}, int cwd, const char $\ast$args)
+\begin{DoxyCompactList}\small\item\em 创建文件。 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__action_gabf958ac083a62ac07ad2a1ac9c08249e}{open\+\_\+file}} (const \mbox{\hyperlink{group__user_ga450623fc37d64234cf3afb2f91cd6bf0}{user\+\_\+t}} $\ast$\mbox{\hyperlink{structuser}{user}}, int cwd, const char $\ast$args)
+\begin{DoxyCompactList}\small\item\em 打开文件。 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__action_ga4cb8335cb0c492df9223950070a8131b}{read\+\_\+file}} (const \mbox{\hyperlink{group__user_ga450623fc37d64234cf3afb2f91cd6bf0}{user\+\_\+t}} $\ast$\mbox{\hyperlink{structuser}{user}}, int cwd, int argc, const char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em 读取文件。 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__action_gaa3294bebf3407cea459ff8260696eefa}{write\+\_\+file}} (const \mbox{\hyperlink{group__user_ga450623fc37d64234cf3afb2f91cd6bf0}{user\+\_\+t}} $\ast$\mbox{\hyperlink{structuser}{user}}, int cwd, int argc, const char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em 写入文件。 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__action_ga0cf0da30de85a6e1ceda71951688dd79}{link\+\_\+file}} (int cwd, int argc, const char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em 创建硬链接。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__action_ga8b1b50f653507747543a21994e42a331}{find\+\_\+file}} (int cwd, const char $\ast$args, int ino)
+\begin{DoxyCompactList}\small\item\em 查找文件。 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group__action_gaf251a464625dab5014cf87a3c5065936}{acq\+\_\+blk}} ()
+\begin{DoxyCompactList}\small\item\em 申请一个新块。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{函数说明}
+\mbox{\label{group__action_gaf251a464625dab5014cf87a3c5065936}} 
+\index{FS行为@{FS行为}!acq\_blk@{acq\_blk}}
+\index{acq\_blk@{acq\_blk}!FS行为@{FS行为}}
+\doxysubsubsection{\texorpdfstring{acq\_blk()}{acq\_blk()}}
+{\footnotesize\ttfamily int acq\+\_\+blk (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+申请一个新块。 
+
+NOTE：这个东西实际是申请而不是创建块，创建块是格式化做的事情。所以我把函数名改了。
+
+\begin{DoxyReturn}{返回}
+int 如果成功，返回块号，否则返回-\/1。 
+\end{DoxyReturn}
+\mbox{\label{group__action_ga2df77b974df1c417db14d98b954fda67}} 
+\index{FS行为@{FS行为}!add\_blk\_for\_file@{add\_blk\_for\_file}}
+\index{add\_blk\_for\_file@{add\_blk\_for\_file}!FS行为@{FS行为}}
+\doxysubsubsection{\texorpdfstring{add\_blk\_for\_file()}{add\_blk\_for\_file()}}
+{\footnotesize\ttfamily int add\+\_\+blk\+\_\+for\+\_\+file (\begin{DoxyParamCaption}\item[{int}]{ino }\end{DoxyParamCaption})}
+
+
+
+为文件申请新的数据块。 
+
+
+\begin{DoxyParams}{参数}
+{\em ino} & 文件的inode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+int 新数据块的id，失败返回-\/1。 
+\end{DoxyReturn}
+\mbox{\label{group__action_gad644cc5abdd989cc4954c8fea05ddf9e}} 
+\index{FS行为@{FS行为}!cd@{cd}}
+\index{cd@{cd}!FS行为@{FS行为}}
+\doxysubsubsection{\texorpdfstring{cd()}{cd()}}
+{\footnotesize\ttfamily void cd (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{group__user_ga450623fc37d64234cf3afb2f91cd6bf0}{user\+\_\+t}} $\ast$}]{user,  }\item[{int $\ast$}]{cwd,  }\item[{const char $\ast$}]{dir\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+修改指定用户的工作目录。 
+
+
+\begin{DoxyParams}{参数}
+{\em user} & 用户 \\
+\hline
+{\em cwd} & 接收修改后工作目录的inode编号 \\
+\hline
+{\em dir\+\_\+name} & 目标目录 \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__action_ga201537deda30a51cb96dc48937c81b96}} 
+\index{FS行为@{FS行为}!creat@{creat}}
+\index{creat@{creat}!FS行为@{FS行为}}
+\doxysubsubsection{\texorpdfstring{creat()}{creat()}}
+{\footnotesize\ttfamily int creat (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{group__user_ga450623fc37d64234cf3afb2f91cd6bf0}{user\+\_\+t}} $\ast$}]{user,  }\item[{int}]{cwd,  }\item[{const char $\ast$}]{args,  }\item[{int}]{mode }\end{DoxyParamCaption})}
+
+
+
+创建文件。 
+
+
+\begin{DoxyParams}{参数}
+{\em user} & 文件属主 \\
+\hline
+{\em cwd} & 工作目录 \\
+\hline
+{\em args} & 参数（？不应该是name？） \\
+\hline
+{\em mode} & 文件权限 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+int 已有文件但不可写返回0，创建失败返回-\/1，成功创建返回inode编号。 
+\end{DoxyReturn}
+\mbox{\label{group__action_ga9451e0f3cc55dc7da04b79e88e45e0e7}} 
+\index{FS行为@{FS行为}!creat\_dir@{creat\_dir}}
+\index{creat\_dir@{creat\_dir}!FS行为@{FS行为}}
+\doxysubsubsection{\texorpdfstring{creat\_dir()}{creat\_dir()}}
+{\footnotesize\ttfamily int creat\+\_\+dir (\begin{DoxyParamCaption}\item[{int}]{ino,  }\item[{int}]{f\+\_\+ino,  }\item[{const char $\ast$}]{dir\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+为文件分配struct dir结构。 
+
+会分配.\+和..目录。
+
+NOTE：你给我的注释写着返回块号，但你自己看看，你返回了锤子块号
+
+
+\begin{DoxyParams}{参数}
+{\em ino} & 当前目录的inode \\
+\hline
+{\em f\+\_\+ino} & 父目录的inode \\
+\hline
+{\em dir\+\_\+name} & 当前目录文件名 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+int 成功返回0，否则返回-\/1。 
+\end{DoxyReturn}
+\mbox{\label{group__action_ga3a688c5497765cdf4f5bc44e721c8dff}} 
+\index{FS行为@{FS行为}!creat\_dirent@{creat\_dirent}}
+\index{creat\_dirent@{creat\_dirent}!FS行为@{FS行为}}
+\doxysubsubsection{\texorpdfstring{creat\_dirent()}{creat\_dirent()}}
+{\footnotesize\ttfamily int creat\+\_\+dirent (\begin{DoxyParamCaption}\item[{int}]{fino,  }\item[{int}]{ino,  }\item[{const char $\ast$}]{name }\end{DoxyParamCaption})}
+
+
+
+为文件创建目录入口。 
+
+具体而言：在fino指向的目录下，为ino文件分配一个名为name的入口。
+
+
+\begin{DoxyParams}{参数}
+{\em fino} & 父目录的inode编号 \\
+\hline
+{\em ino} & 子目录的inode编号 \\
+\hline
+{\em name} & 文件名 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+int 成功返回0，否则返回-\/1。 
+\end{DoxyReturn}
+\mbox{\label{group__action_ga0213b17b7757493ebc884eb4b43d4781}} 
+\index{FS行为@{FS行为}!creat\_file@{creat\_file}}
+\index{creat\_file@{creat\_file}!FS行为@{FS行为}}
+\doxysubsubsection{\texorpdfstring{creat\_file()}{creat\_file()}}
+{\footnotesize\ttfamily void creat\+\_\+file (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{group__user_ga450623fc37d64234cf3afb2f91cd6bf0}{user\+\_\+t}} $\ast$}]{user,  }\item[{int}]{cwd,  }\item[{const char $\ast$}]{args }\end{DoxyParamCaption})}
+
+
+
+创建文件。 
+
+
+\begin{DoxyParams}{参数}
+{\em user} & 创建者 \\
+\hline
+{\em cwd} & 工作目录 \\
+\hline
+{\em args} & 文件名 \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__action_ga91cb6626f30684259e0296ede7113552}} 
+\index{FS行为@{FS行为}!creat\_ino@{creat\_ino}}
+\index{creat\_ino@{creat\_ino}!FS行为@{FS行为}}
+\doxysubsubsection{\texorpdfstring{creat\_ino()}{creat\_ino()}}
+{\footnotesize\ttfamily int creat\+\_\+ino (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+分配inode。 
+
+\begin{DoxyReturn}{返回}
+int 成功返回inode编号，失败返回-\/1。 
+\end{DoxyReturn}
+\mbox{\label{group__action_gac72355a82d45ea4621cccaf53e652ba9}} 
+\index{FS行为@{FS行为}!creat\_stat@{creat\_stat}}
+\index{creat\_stat@{creat\_stat}!FS行为@{FS行为}}
+\doxysubsubsection{\texorpdfstring{creat\_stat()}{creat\_stat()}}
+{\footnotesize\ttfamily int creat\+\_\+stat (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{group__user_ga450623fc37d64234cf3afb2f91cd6bf0}{user\+\_\+t}} $\ast$}]{user,  }\item[{int}]{ino,  }\item[{int}]{mode }\end{DoxyParamCaption})}
+
+
+
+创建文件的stat。 
+
+
+\begin{DoxyParams}{参数}
+{\em user} & 文件属主 \\
+\hline
+{\em ino} & 文件获得的inode编号 \\
+\hline
+{\em mode} & 创建模式 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+int 总是返回0。 
+\end{DoxyReturn}
+\mbox{\label{group__action_ga8b1b50f653507747543a21994e42a331}} 
+\index{FS行为@{FS行为}!find\_file@{find\_file}}
+\index{find\_file@{find\_file}!FS行为@{FS行为}}
+\doxysubsubsection{\texorpdfstring{find\_file()}{find\_file()}}
+{\footnotesize\ttfamily void find\+\_\+file (\begin{DoxyParamCaption}\item[{int}]{cwd,  }\item[{const char $\ast$}]{args,  }\item[{int}]{ino }\end{DoxyParamCaption})}
+
+
+
+查找文件。 
+
+
+\begin{DoxyParams}{参数}
+{\em cwd} & 工作目录 \\
+\hline
+{\em args} & 参数 \\
+\hline
+{\em ino} & inode编号 \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__action_gad41f5224ad12cefbac463c619a923e9d}} 
+\index{FS行为@{FS行为}!find\_name\_in\_dir@{find\_name\_in\_dir}}
+\index{find\_name\_in\_dir@{find\_name\_in\_dir}!FS行为@{FS行为}}
+\doxysubsubsection{\texorpdfstring{find\_name\_in\_dir()}{find\_name\_in\_dir()}}
+{\footnotesize\ttfamily int find\+\_\+name\+\_\+in\+\_\+dir (\begin{DoxyParamCaption}\item[{int}]{ino,  }\item[{const char $\ast$}]{name,  }\item[{int}]{mode }\end{DoxyParamCaption})}
+
+
+
+在指定目录下查找具有指定名称的文件。 
+
+
+\begin{DoxyParams}{参数}
+{\em ino} & 目录项的inode编号 \\
+\hline
+{\em name} & 待查的文件名 \\
+\hline
+{\em mode} & 查询模式 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+int 若找到文件，返回inode编号，否则返回-\/1。 
+\end{DoxyReturn}
+\mbox{\label{group__action_ga0cf0da30de85a6e1ceda71951688dd79}} 
+\index{FS行为@{FS行为}!link\_file@{link\_file}}
+\index{link\_file@{link\_file}!FS行为@{FS行为}}
+\doxysubsubsection{\texorpdfstring{link\_file()}{link\_file()}}
+{\footnotesize\ttfamily int link\+\_\+file (\begin{DoxyParamCaption}\item[{int}]{cwd,  }\item[{int}]{argc,  }\item[{const char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+创建硬链接。 
+
+接受两个参数，第一个参数是源文件名，第二个参数是硬链接的文件名。
+
+
+\begin{DoxyParams}{参数}
+{\em cwd} & 工作目录 \\
+\hline
+{\em argc} & 没有用 \\
+\hline
+{\em argv} & 参数 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+int 成功返回0，失败返回-\/1。 
+\end{DoxyReturn}
+\mbox{\label{group__action_gad5e668677b4acfc76c5f0d23df13b0ca}} 
+\index{FS行为@{FS行为}!ls@{ls}}
+\index{ls@{ls}!FS行为@{FS行为}}
+\doxysubsubsection{\texorpdfstring{ls()}{ls()}}
+{\footnotesize\ttfamily void ls (\begin{DoxyParamCaption}\item[{int}]{ino,  }\item[{char $\ast$}]{args }\end{DoxyParamCaption})}
+
+
+
+查看目录信息。 
+
+NOTE：真正的ls指令应该和权限有关。执行权限被拒绝的话应该不能成功执行ls。我不太确定（
+
+
+\begin{DoxyParams}{参数}
+{\em ino} & 要查看的目录的inode编号。 \\
+\hline
+{\em args} & 希腊奶，传\+NULL就完事了！ \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__action_gad1fbab6bd7c1201c8a46066187524467}} 
+\index{FS行为@{FS行为}!mkdir@{mkdir}}
+\index{mkdir@{mkdir}!FS行为@{FS行为}}
+\doxysubsubsection{\texorpdfstring{mkdir()}{mkdir()}}
+{\footnotesize\ttfamily int mkdir (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{group__user_ga450623fc37d64234cf3afb2f91cd6bf0}{user\+\_\+t}} $\ast$}]{user,  }\item[{int}]{cwd,  }\item[{const char $\ast$}]{dir\+\_\+name,  }\item[{int}]{mode }\end{DoxyParamCaption})}
+
+
+
+创建目录。 
+
+
+\begin{DoxyParams}{参数}
+{\em user} & 目录属主 \\
+\hline
+{\em cwd} & 工作目录 \\
+\hline
+{\em dir\+\_\+name} & 目录名 \\
+\hline
+{\em mode} & 你尽管改，起作用算我输 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+int 成功返回0，否则返回-\/1。 
+\end{DoxyReturn}
+\mbox{\label{group__action_gabf958ac083a62ac07ad2a1ac9c08249e}} 
+\index{FS行为@{FS行为}!open\_file@{open\_file}}
+\index{open\_file@{open\_file}!FS行为@{FS行为}}
+\doxysubsubsection{\texorpdfstring{open\_file()}{open\_file()}}
+{\footnotesize\ttfamily int open\+\_\+file (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{group__user_ga450623fc37d64234cf3afb2f91cd6bf0}{user\+\_\+t}} $\ast$}]{user,  }\item[{int}]{cwd,  }\item[{const char $\ast$}]{args }\end{DoxyParamCaption})}
+
+
+
+打开文件。 
+
+
+\begin{DoxyParams}{参数}
+{\em user} & 执行操作的用户 \\
+\hline
+{\em cwd} & 工作目录 \\
+\hline
+{\em args} & 待查文件名 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+int 成功返回inode，否则返回-\/1。 
+\end{DoxyReturn}
+\mbox{\label{group__action_gaee21f23fd7e6debe3c36a5e2011c2744}} 
+\index{FS行为@{FS行为}!pwd@{pwd}}
+\index{pwd@{pwd}!FS行为@{FS行为}}
+\doxysubsubsection{\texorpdfstring{pwd()}{pwd()}}
+{\footnotesize\ttfamily void pwd (\begin{DoxyParamCaption}\item[{int}]{cwd,  }\item[{char $\ast$}]{buf,  }\item[{int}]{ino }\end{DoxyParamCaption})}
+
+
+
+取得指定inode的目录名。 
+
+
+\begin{DoxyParams}{参数}
+{\em cwd} & 要取得目录名的inode编号 \\
+\hline
+{\em buf} & 缓冲区 \\
+\hline
+{\em ino} & 递归参数，一般填当前目录即可 \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__action_ga4cb8335cb0c492df9223950070a8131b}} 
+\index{FS行为@{FS行为}!read\_file@{read\_file}}
+\index{read\_file@{read\_file}!FS行为@{FS行为}}
+\doxysubsubsection{\texorpdfstring{read\_file()}{read\_file()}}
+{\footnotesize\ttfamily int read\+\_\+file (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{group__user_ga450623fc37d64234cf3afb2f91cd6bf0}{user\+\_\+t}} $\ast$}]{user,  }\item[{int}]{cwd,  }\item[{int}]{argc,  }\item[{const char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+读取文件。 
+
+
+\begin{DoxyParams}{参数}
+{\em user} & 用户 \\
+\hline
+{\em cwd} & 工作目录 \\
+\hline
+{\em argc} & 没有用 \\
+\hline
+{\em argv} & 参数 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+int 成功返回0，否则返回-\/1。 
+\end{DoxyReturn}
+\mbox{\label{group__action_gab19526a6d1d83ee5c8027f7e2cebff08}} 
+\index{FS行为@{FS行为}!rm@{rm}}
+\index{rm@{rm}!FS行为@{FS行为}}
+\doxysubsubsection{\texorpdfstring{rm()}{rm()}}
+{\footnotesize\ttfamily void rm (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{group__user_ga450623fc37d64234cf3afb2f91cd6bf0}{user\+\_\+t}} $\ast$}]{user,  }\item[{int}]{cwd,  }\item[{const char $\ast$}]{args,  }\item[{int}]{work\+Ino,  }\item[{int}]{mode }\end{DoxyParamCaption})}
+
+
+
+删除指定文件。 
+
+
+\begin{DoxyParams}{参数}
+{\em user} & 用户 \\
+\hline
+{\em cwd} & 工作目录 \\
+\hline
+{\em args} & 目标文件名？ \\
+\hline
+{\em work\+Ino} & 希腊奶（？） \\
+\hline
+{\em mode} & 删除模式 \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__action_ga33db0cb019e13ef6feaa3152c5c4320f}} 
+\index{FS行为@{FS行为}!rm\_dir\_item@{rm\_dir\_item}}
+\index{rm\_dir\_item@{rm\_dir\_item}!FS行为@{FS行为}}
+\doxysubsubsection{\texorpdfstring{rm\_dir\_item()}{rm\_dir\_item()}}
+{\footnotesize\ttfamily int rm\+\_\+dir\+\_\+item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__fs__struct_gafbbd3b1f6ddcd58269675a5727e1c80f}{dir\+\_\+t}} $\ast$}]{d,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+删除指定目录下的第n项。 
+
+NOTE：讲真，这个是不是不应该暴露出来？
+
+
+\begin{DoxyParams}{参数}
+{\em d} & 待处理的目录 \\
+\hline
+{\em n} & 见介绍 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+int 总是返回0。 
+\end{DoxyReturn}
+\mbox{\label{group__action_gaad581cfec7c1e716d12250c62b990c7e}} 
+\index{FS行为@{FS行为}!rmdir@{rmdir}}
+\index{rmdir@{rmdir}!FS行为@{FS行为}}
+\doxysubsubsection{\texorpdfstring{rmdir()}{rmdir()}}
+{\footnotesize\ttfamily void rmdir (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{group__user_ga450623fc37d64234cf3afb2f91cd6bf0}{user\+\_\+t}} $\ast$}]{user,  }\item[{int}]{cwd,  }\item[{char $\ast$}]{dir\+\_\+name,  }\item[{int}]{mode }\end{DoxyParamCaption})}
+
+
+
+删除目录。 
+
+
+\begin{DoxyParams}{参数}
+{\em user} & 用户 \\
+\hline
+{\em cwd} & 工作目录 \\
+\hline
+{\em dir\+\_\+name} & 目标目录名 \\
+\hline
+{\em mode} & 删除模式 \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__action_gaa3294bebf3407cea459ff8260696eefa}} 
+\index{FS行为@{FS行为}!write\_file@{write\_file}}
+\index{write\_file@{write\_file}!FS行为@{FS行为}}
+\doxysubsubsection{\texorpdfstring{write\_file()}{write\_file()}}
+{\footnotesize\ttfamily int write\+\_\+file (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{group__user_ga450623fc37d64234cf3afb2f91cd6bf0}{user\+\_\+t}} $\ast$}]{user,  }\item[{int}]{cwd,  }\item[{int}]{argc,  }\item[{const char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+写入文件。 
+
+
+\begin{DoxyParams}{参数}
+{\em user} & 用户 \\
+\hline
+{\em cwd} & 工作目录 \\
+\hline
+{\em argc} & 没有用 \\
+\hline
+{\em argv} & 参数 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+int 成功返回0，失败返回-\/1。 
+\end{DoxyReturn}

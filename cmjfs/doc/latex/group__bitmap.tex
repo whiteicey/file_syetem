@@ -1,0 +1,26 @@
+\doxysection{位图}
+\label{group__bitmap}\index{位图@{位图}}
+位图 的协作图\+:
+% FIG 0
+\doxysubsection*{宏定义}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{group__bitmap_gaa091cde81c232a7099b21e500da84b90}} 
+\#define {\bfseries SET\+\_\+\+BLK\+\_\+\+FLAG}(i)~(\mbox{\hyperlink{group__bitmap_gab2b3dcafcfc63acc07315a3c2ee4c7a7}{blk\+\_\+flag}}\mbox{[}i / CHAR\+\_\+\+BIT\mbox{]} $\vert$= \textquotesingle{}\textbackslash{}x01\textquotesingle{} $<$$<$ (i \% CHAR\+\_\+\+BIT))
+\item 
+\mbox{\label{group__bitmap_gacb95a67dec2ec9cfc143783dbee4afac}} 
+\#define \mbox{\hyperlink{group__bitmap_gacb95a67dec2ec9cfc143783dbee4afac}{TEST\+\_\+\+BLK\+\_\+\+FLAG}}(i)~(\mbox{\hyperlink{group__bitmap_gab2b3dcafcfc63acc07315a3c2ee4c7a7}{blk\+\_\+flag}}\mbox{[}i / CHAR\+\_\+\+BIT\mbox{]} \& \textquotesingle{}\textbackslash{}x01\textquotesingle{} $<$$<$ (i \% CHAR\+\_\+\+BIT) ? 1 \+: 0)
+\begin{DoxyCompactList}\small\item\em 检查标识位 \end{DoxyCompactList}\item 
+\mbox{\label{group__bitmap_gaa718e268ef6d3b18fcc65b0fc572d715}} 
+\#define \mbox{\hyperlink{group__bitmap_gaa718e268ef6d3b18fcc65b0fc572d715}{CLEAR\+\_\+\+BLK\+\_\+\+FLAG}}(i)~(\mbox{\hyperlink{group__bitmap_gab2b3dcafcfc63acc07315a3c2ee4c7a7}{blk\+\_\+flag}}\mbox{[}i / CHAR\+\_\+\+BIT\mbox{]} $^\wedge$= \textquotesingle{}\textbackslash{}x01\textquotesingle{} $<$$<$ (i \% CHAR\+\_\+\+BIT))
+\begin{DoxyCompactList}\small\item\em 清除标识位 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{变量}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{group__bitmap_gab2b3dcafcfc63acc07315a3c2ee4c7a7}} 
+char \mbox{\hyperlink{group__bitmap_gab2b3dcafcfc63acc07315a3c2ee4c7a7}{blk\+\_\+flag}} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em 位图管理，指示哪些块可用。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+设置标识位 
