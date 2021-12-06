@@ -38,7 +38,7 @@ extern int idle_uid;
 /**
  * @brief 登录函数。
  * 
- * NOTE：在这里写文件交互？建议：外部写一个管理器，只加载一次。
+ * NOTE：建议：外部写一个管理器，只加载一次。
  * 修改时管理器和文件同步修改。对大文件，这样效率比较高。
  * 
  * @param user 接收用户的登录参数
@@ -62,7 +62,6 @@ int find_user(const char* args);
  * @param args 待添加的用户名
  */
 void add_user(const user_t* user, const char* args);
-//  * NOTE：你这咋连返回值都没了？
 
 //! @}
 

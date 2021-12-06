@@ -17,7 +17,7 @@
 typedef struct stat {
     //! inode结点号
     int st_ino;
-    //! 文件类型（？）
+    //! 文件类型
     int st_mode;
     //! 引用计数
     int st_nlink;
@@ -27,7 +27,7 @@ typedef struct stat {
     int st_uid;
     //! 文件属组
     int st_gid;
-    //! 文件块大小（？）
+    //! 文件块大小
     int st_blksize;
     //! 文件块数量
     int st_blocks;

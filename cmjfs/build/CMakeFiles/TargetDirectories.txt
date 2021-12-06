@@ -1,3 +1,0 @@
-/Users/kk/Desktop/os/cmjfs/build/CMakeFiles/rebuild_cache.dir
-/Users/kk/Desktop/os/cmjfs/build/CMakeFiles/edit_cache.dir
-/Users/kk/Desktop/os/cmjfs/build/CMakeFiles/CMJFS.dir

@@ -23,15 +23,12 @@
 
 //! 获取文件的第n个块
 #define GET_BLKN(ino,n) (BLK[inode[ino].blk1[n]])
-// NOTE：这，，，真就只有直接索引？
-// TODO: 修改这个东西，我猜可能没法用宏来实现
 
 //! 获取文件的第n个块
 #define GET_PAGE(ino,page) (page >= 10 ? BLK[inode[ino].blk2].index[page-10] : inode[ino].blk1[page])
 //! 获取字符(？)
 #define GET_CHAR(ino,page,offset) (BLK[GET_PAGE(ino,page)].str[offset])
-// NOTE：宏必须加括号，这是原则。这里我帮你加上了。这样的原则是为了防止疏忽和减少维护成本。
-// 以及，为什么是page不是block？
+// NOTE：宏必须加括号，这是原则。这样的原则是为了防止疏忽和减少维护成本。
 
 /**
  * @brief 为文件申请新的数据块。
@@ -78,7 +75,6 @@ int creat_dirent(int fino, int ino, const char* name);
  * 
  * 会分配.和..目录。
  * 
- * NOTE：你给我的注释写着返回块号，但你自己看看，你返回了锤子块号
  * 
  * @param ino 当前目录的inode
  * @param f_ino 父目录的inode
@@ -100,13 +96,12 @@ int creat_ino();
  * 
  * @param user 文件属主
  * @param cwd 工作目录
- * @param args 参数（？不应该是name？）
+ * @param args name参数
  * @param mode 文件权限
  * @return int 已有文件但不可写返回0，创建失败返回-1，成功创建返回inode编号。
  */
 int creat(const user_t* user, int cwd, const char* args, int mode);
 
-// TODO: 你truncate呢？？这个调用很重要啊
 
 /**
  * @brief 创建目录。
@@ -122,10 +117,9 @@ int mkdir(const user_t* user, int cwd, const char* dir_name, int mode);
 /**
  * @brief 查看目录信息。
  * 
- * NOTE：真正的ls指令应该和权限有关。执行权限被拒绝的话应该不能成功执行ls。我不太确定（
  * 
  * @param ino 要查看的目录的inode编号。
- * @param args 希腊奶，传NULL就完事了！
+ * @param args NULL
  */
 void ls(int ino, char* args);
 
@@ -150,7 +144,6 @@ void cd(const user_t* user, int* cwd, const char* dir_name);
 /**
  * @brief 删除指定目录下的第n项。
  * 
- * NOTE：讲真，这个是不是不应该暴露出来？
  * 
  * @param d 待处理的目录
  * @param n 见介绍
@@ -164,7 +157,7 @@ int rm_dir_item(dir_t* d, int n);
  * @param user 用户
  * @param cwd 工作目录
  * @param args 目标文件名？
- * @param workIno 希腊奶（？）
+ * @param workIno 文件节点
  * @param mode 删除模式
  */
 void rm(const user_t* user, int cwd, const char* args, int workIno, int mode);

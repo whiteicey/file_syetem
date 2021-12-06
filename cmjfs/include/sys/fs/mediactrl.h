@@ -43,7 +43,6 @@ extern inode_t inode[];
  * @brief 申请一个新块。
  * @ingroup action
  * 
- * NOTE：这个东西实际是申请而不是创建块，创建块是格式化做的事情。所以我把函数名改了。
  * 
  * @return int 如果成功，返回块号，否则返回-1。
  */
