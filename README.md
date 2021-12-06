@@ -53,41 +53,42 @@ CMake <源码目录>，或者使用CMake-GUI工具
 文档已生成
 
 # 文件结构
-.  
-├── README.md 
-├── cmjfs  
-│   ├── CMakeLists.txt 
-│   ├── doxygen_config 
-│   ├── include 
-│   │   ├── config.h  
-│   │   ├── doc.h  
-│   │   ├── shell  
-│   │   │   ├── cmd.h  
-│   │   │   ├── io.h  
-│   │   │   └── shell.h  
-│   │   └── sys  
-│   │       ├── fs 
-│   │       │   ├── fsops.h  
-│   │       │   ├── mediactrl.h  
-│   │       │   └── types 
-│   │       │       ├── block.h  
-│   │       │       ├── dir.h  
-│   │       │       ├── dirent.h  
-│   │       │       ├── dirents.h  
-│   │       │       ├── inode.h  
-│   │       │       └── stat.h  
-│   │       ├── permission.h  
-│   │       └── user.h  
-│   └── src  
-│       ├── main.c  
-│       ├── shell  
-│       │   ├── cmd.c  
-│       │   ├── io.c  
-│       │   └── shell.c 
-│       └── sys 
-│           ├── fs 
-│           │   ├── fsops.c  
-│           │   └── mediactrl.c  
-│           ├── permission.c  
-│           └── user.c 
-└── 设计文档.pdf 
+.\
+├── README.md\
+├── cmjfs\
+│   ├── CMakeLists.txt\
+│   ├── doxygen_config\
+│   ├── include\
+│   │   ├── config.h\
+│   │   ├── doc.h\
+│   │   ├── shell\
+│   │   │   ├── cmd.h\
+│   │   │   ├── io.h\
+│   │   │   └── shell.h\
+│   │   └── sys\
+│   │       ├── fs\
+│   │       │   ├── fsops.h\
+│   │       │   ├── mediactrl.h\
+│   │       │   └── types\
+│   │       │       ├── block.h\
+│   │       │       ├── dir.h\
+│   │       │       ├── dirent.h\
+│   │       │       ├── dirents.h\
+│   │       │       ├── inode.h\
+│   │       │       └── stat.h\
+│   │       ├── permission.h\
+│   │       └── user.h\
+│   └── src\
+│       ├── main.c\
+│       ├── shell\
+│       │   ├── cmd.c\
+│       │   ├── io.c\
+│       │   └── shell.c\
+│       └── sys\
+│           ├── fs\
+│           │   ├── fsops.c\
+│           │   └── mediactrl.c\
+│           ├── permission.c\
+│           └── user.c\
+└── 设计文档.pdf\
+
